@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VerificationHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mail-verify-backend</a> &gt; <a href="index.source.html" class="el_package">at.fhv.mail_verify.handlers</a> &gt; <span class="el_source">VerificationHandler.java</span></div><h1>VerificationHandler.java</h1><pre class="source lang-java linenums">package at.fhv.mail_verify.handlers;
+
+// Start of user code (user defined imports)
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.fluent.Request;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+// End of user code
+
+public class VerificationHandler {
+	// Start of user code (user defined attributes)
+	
+	// End of user code
+	
+
+	private static VerificationHandler INSTANCE;
+	
+<span class="fc" id="L21">	private VerificationHandler(){</span>
+	    // singleton
+<span class="fc" id="L23">	}</span>
+	
+	public static VerificationHandler getInstance(){
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">	    if(INSTANCE == null){</span>
+<span class="fc" id="L27">	        INSTANCE = new VerificationHandler();</span>
+	    }
+	
+<span class="fc" id="L30">	    return INSTANCE;</span>
+	}
+	
+	public at.fhv.mail_verify.models.VerResult verify(String mailAd, String token) throws Exception {
+		// Start of user code verify
+<span class="nc bnc" id="L35" title="All 4 branches missed.">		if(token == null || &quot;&quot;.equals(token)) {</span>
+<span class="nc" id="L36">			throw new Exception(&quot;Not authenticated&quot;);</span>
+		}
+		
+<span class="nc bnc" id="L39" title="All 4 branches missed.">		if(mailAd == null || &quot;&quot;.equals(mailAd)) {</span>
+<span class="nc" id="L40">			at.fhv.mail_verify.models.VerResult empty = new at.fhv.mail_verify.models.VerResult();</span>
+<span class="nc" id="L41">			empty.setResult(false);</span>
+<span class="nc" id="L42">			return empty;</span>
+		}
+		
+<span class="nc" id="L45">		String sURL = &quot;http://apilayer.net/api/check?access_key=&quot; + System.getenv(&quot;MAILBOXLAYER_API_KEY&quot;) + &quot;&amp;email=&quot; + mailAd + &quot;&amp;smtp=1&amp;format=1&quot;;</span>
+		
+<span class="nc" id="L47">		HttpResponse response = Request.Post(sURL).execute().returnResponse();</span>
+<span class="nc" id="L48">		String result = IOUtils.toString(response.getEntity().getContent(), &quot;UTF-8&quot;);</span>
+<span class="nc" id="L49">		Gson gson = new GsonBuilder().create();</span>
+<span class="nc" id="L50">		JsonObject jsonObject = gson.fromJson(result, JsonObject.class);</span>
+		
+<span class="nc" id="L52">		boolean bMailValid = gson.fromJson(jsonObject.get(&quot;smtp_check&quot;),	Boolean.class);</span>
+				
+<span class="nc" id="L54">		at.fhv.mail_verify.models.VerResult verificationResult = new at.fhv.mail_verify.models.VerResult();</span>
+
+<span class="nc bnc" id="L56" title="All 2 branches missed.">    if(bMailValid == true){</span>
+<span class="nc" id="L57">      verificationResult.setResult(true);</span>
+<span class="nc" id="L58">    }</span>
+    else{
+<span class="nc" id="L60">      verificationResult.setResult(false);</span>
+    }
+		
+<span class="nc" id="L63">		HistoryHandler.getInstance().addHistory(token, mailAd, verificationResult);</span>
+<span class="nc" id="L64">		return verificationResult;</span>
+        
+		// End of user code
+	}
+	
+	// Start of user code (user defined operations)
+	
+	// End of user code
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: at.fhv.mail_verify.handlers.AnalysisHandlerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in at.fhv.mail_verify.handlers.AnalysisHandlerTest
+testSingleton(at.fhv.mail_verify.handlers.AnalysisHandlerTest)  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+	AnalysisHandler cannot be resolved
+
+	at at.fhv.mail_verify.handlers.AnalysisHandlerTest.testSingleton(AnalysisHandlerTest.java:17)
+
