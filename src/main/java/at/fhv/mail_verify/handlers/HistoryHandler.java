@@ -39,8 +39,8 @@ public class HistoryHandler {
 		// Start of user code addHistory
 		at.fhv.mail_verify.models.User user = AuthHandler.getInstance().getUser(token);
 		at.fhv.mail_verify.models.HistoryItem item = new at.fhv.mail_verify.models.HistoryItem();
-    item.setRequestDate(Instant.now().toEpochMilli());
-    item.setMailAd(addr);
+    item.setRequestdate(Instant.now().toEpochMilli());
+    item.setMailad(mailad);
     item.setResult(result);
     user.getHistory().getItems().add(item);
     

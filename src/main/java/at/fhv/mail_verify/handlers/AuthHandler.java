@@ -37,16 +37,16 @@ public class AuthHandler {
 	
 	public String login(String usermail) throws Exception {
 		// Start of user code login
-		System.out.println("AuthHandler called with: " + userMail);
-		if(userMail == null || "".equals(userMail)) {
+		System.out.println("AuthHandler called with: " + usermail);
+		if(usermail == null || "".equals(usermail)) {
 			System.out.println("AuthHandler failed");
 			throw new Exception("Email must not be empty");
 		}
 		
-		 String token = DigestUtils.md2Hex(userMail);
+		 String token = DigestUtils.md2Hex(usermail);
 	        if (!users.containsKey(token)) {
 	        	at.fhv.mail_verify.models.User user = new at.fhv.mail_verify.models.User();
-	        	user.setUserMail(userMail);
+	        	user.setUsermail(usermail);
 	        	user.setHistory(new at.fhv.mail_verify.models.History());
 	          users.put(token, user);
 	        }

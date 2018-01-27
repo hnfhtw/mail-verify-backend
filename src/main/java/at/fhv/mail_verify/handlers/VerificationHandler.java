@@ -36,13 +36,13 @@ public class VerificationHandler {
 			throw new Exception("Not authenticated");
 		}
 		
-		if(mailAd == null || "".equals(mailAd)) {
+		if(mailad == null || "".equals(mailad)) {
 			at.fhv.mail_verify.models.VerResult empty = new at.fhv.mail_verify.models.VerResult();
 			empty.setResult(false);
 			return empty;
 		}
 		
-		String sURL = "http://apilayer.net/api/check?access_key=" + System.getenv("MAILBOXLAYER_API_KEY") + "&email=" + mailAd + "&smtp=1&format=1";
+		String sURL = "http://apilayer.net/api/check?access_key=" + System.getenv("MAILBOXLAYER_API_KEY") + "&email=" + mailad + "&smtp=1&format=1";
 		
 		HttpResponse response = Request.Post(sURL).execute().returnResponse();
 		String result = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
@@ -60,7 +60,7 @@ public class VerificationHandler {
       verificationResult.setResult(false);
     }
 		
-		HistoryHandler.getInstance().addHistory(token, mailAd, verificationResult);
+		HistoryHandler.getInstance().addHistory(token, mailad, verificationResult);
 		return verificationResult;
         
 		// End of user code

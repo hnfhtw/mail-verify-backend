@@ -15,7 +15,7 @@ public class VerificationEndpoint {
 	public at.fhv.mail_verify.models.VerResult verify(@org.springframework.web.bind.annotation.RequestParam("mailad") String mailad, @org.springframework.web.bind.annotation.RequestParam("token") String token) throws Exception {
 		// Start of user code verify
 		System.out.println("Endpoint Reached");
-		return at.fhv.mail_verify.handlers.VerificationHandler.getInstance().verify(mailAd, token);
+		return at.fhv.mail_verify.handlers.VerificationHandler.getInstance().verify(mailad, token);
 		// End of user code
 	}
 	
