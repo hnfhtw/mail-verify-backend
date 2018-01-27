@@ -6,14 +6,14 @@ package at.fhv.mail_verify.models;
 
 public class HistoryItem {
 	/**
-	 * Description of the property mailAd.
+	 * Description of the property mailad.
 	 */
-	private String mailAd = null;
+	private String mailad = null;
 	
 	/**
-	 * Description of the property requestDate.
+	 * Description of the property requestdate.
 	 */
-	private long requestDate = 0;
+	private long requestdate = 0;
 	
 	/**
 	 * Description of the property result.
@@ -24,20 +24,20 @@ public class HistoryItem {
 	
 	// End of user code
 	
-		public String getMailAd(){
-		   return this.mailAd;
+		public String getMailad(){
+		   return this.mailad;
 		}
 		
-		public void setMailAd(String mailAd){
-		   this.mailAd = mailAd;
+		public void setMailad(String mailad){
+		   this.mailad = mailad;
 		}
 		
-		public long getRequestDate(){
-		   return this.requestDate;
+		public long getRequestdate(){
+		   return this.requestdate;
 		}
 		
-		public void setRequestDate(long requestDate){
-		   this.requestDate = requestDate;
+		public void setRequestdate(long requestdate){
+		   this.requestdate = requestdate;
 		}
 		
 		public at.fhv.mail_verify.models.VerResult getResult(){

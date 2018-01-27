@@ -12,7 +12,7 @@ public class VerificationEndpoint {
 	
 	
 	@org.springframework.web.bind.annotation.PostMapping("/verify")
-	public at.fhv.mail_verify.models.VerResult verify(@org.springframework.web.bind.annotation.RequestParam("mailAd") String mailAd, @org.springframework.web.bind.annotation.RequestParam("token") String token) throws Exception {
+	public at.fhv.mail_verify.models.VerResult verify(@org.springframework.web.bind.annotation.RequestParam("mailad") String mailad, @org.springframework.web.bind.annotation.RequestParam("token") String token) throws Exception {
 		// Start of user code verify
 		System.out.println("Endpoint Reached");
 		return at.fhv.mail_verify.handlers.VerificationHandler.getInstance().verify(mailAd, token);

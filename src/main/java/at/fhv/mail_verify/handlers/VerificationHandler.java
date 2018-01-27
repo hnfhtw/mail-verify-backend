@@ -30,7 +30,7 @@ public class VerificationHandler {
 	    return INSTANCE;
 	}
 	
-	public at.fhv.mail_verify.models.VerResult verify(String mailAd, String token) throws Exception {
+	public at.fhv.mail_verify.models.VerResult verify(String mailad, String token) throws Exception {
 		// Start of user code verify
 		if(token == null || "".equals(token)) {
 			throw new Exception("Not authenticated");

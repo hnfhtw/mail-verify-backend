@@ -6,9 +6,9 @@ package at.fhv.mail_verify.models;
 
 public class User {
 	/**
-	 * Description of the property userMail.
+	 * Description of the property usermail.
 	 */
-	private String userMail = null;
+	private String usermail = null;
 	
 	/**
 	 * Description of the property history.
@@ -19,12 +19,12 @@ public class User {
 	
 	// End of user code
 	
-		public String getUserMail(){
-		   return this.userMail;
+		public String getUsermail(){
+		   return this.usermail;
 		}
 		
-		public void setUserMail(String userMail){
-		   this.userMail = userMail;
+		public void setUsermail(String usermail){
+		   this.usermail = usermail;
 		}
 		
 		public at.fhv.mail_verify.models.History getHistory(){

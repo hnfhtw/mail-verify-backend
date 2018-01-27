@@ -12,7 +12,7 @@ public class AuthEndpoint {
 	
 	
 	@org.springframework.web.bind.annotation.PostMapping("/login")
-	public String login(@org.springframework.web.bind.annotation.RequestParam("userMail") String userMail) throws Exception {
+	public String login(@org.springframework.web.bind.annotation.RequestParam("usermail") String usermail) throws Exception {
 		// Start of user code login
 		System.out.println("Login Request received with: " + userMail);
 		return at.fhv.mail_verify.handlers.AuthHandler.getInstance().login(userMail);

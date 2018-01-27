@@ -35,7 +35,7 @@ public class AuthHandler {
 		// End of user code
 	}
 	
-	public String login(String userMail) throws Exception {
+	public String login(String usermail) throws Exception {
 		// Start of user code login
 		System.out.println("AuthHandler called with: " + userMail);
 		if(userMail == null || "".equals(userMail)) {
