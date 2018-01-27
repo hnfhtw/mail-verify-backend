@@ -24,6 +24,17 @@ public class HistoryHandler {
 	    return INSTANCE;
 	}
 	
+	public at.fhv.mail_verify.models.History getHistory(String token) throws Exception {
+		// Start of user code getHistory
+		if(token == null || "".equals(token)) {
+			throw new Exception("Token must not be empty");
+		}
+		
+		at.fhv.mail_verify.models.User user = AuthHandler.getInstance().getUser(token);
+		return user.getHistory();
+		// End of user code
+	}
+	
 	public void addHistory(String token, String addr, at.fhv.mail_verify.models.VerResult result) throws Exception {
 		// Start of user code addHistory
 		at.fhv.mail_verify.models.User user = AuthHandler.getInstance().getUser(token);
@@ -33,17 +44,6 @@ public class HistoryHandler {
     item.setResult(result);
     user.getHistory().getItems().add(item);
     
-		// End of user code
-	}
-	
-	public at.fhv.mail_verify.models.History getHistory(String token) throws Exception {
-		// Start of user code getHistory
-		if(token == null || "".equals(token)) {
-			throw new Exception("Token must not be empty");
-		}
-		
-		at.fhv.mail_verify.models.User user = AuthHandler.getInstance().getUser(token);
-		return user.getHistory();
 		// End of user code
 	}
 	

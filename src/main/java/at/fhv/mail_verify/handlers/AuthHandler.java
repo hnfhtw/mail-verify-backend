@@ -26,6 +26,15 @@ public class AuthHandler {
 	    return INSTANCE;
 	}
 	
+	public void logout(String token) throws Exception {
+		// Start of user code logout
+		if(token == null || "".equals(token)) {
+			throw new Exception("Unknown token");
+		}
+		users.remove(token);
+		// End of user code
+	}
+	
 	public String login(String userMail) throws Exception {
 		// Start of user code login
 		System.out.println("AuthHandler called with: " + userMail);
@@ -44,15 +53,6 @@ public class AuthHandler {
 	        System.out.println("Token = " + token);
 
 	        return token;
-		// End of user code
-	}
-	
-	public void logout(String token) throws Exception {
-		// Start of user code logout
-		if(token == null || "".equals(token)) {
-			throw new Exception("Unknown token");
-		}
-		users.remove(token);
 		// End of user code
 	}
 	
