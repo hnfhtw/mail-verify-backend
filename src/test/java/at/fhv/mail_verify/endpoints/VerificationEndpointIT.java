@@ -8,56 +8,54 @@ import at.fhv.mail_verify.models.VerResult;
 /**
  * Integration tests for {@link AnalysisEndoint}
  * 
- * @author Michael Sieber
+ * @author HN
  *
  */
 public class VerificationEndpointIT {
 
 	/**
-	 * Test analysis with empty text
+	 * Test verification of empty mail address
 	 */
-	/*@Test
-	public void testAnalyzeEmptyText() throws Exception {
+	@Test
+	public void testVerifyEmptyMailAddress() throws Exception {
 		AuthEndpoint authEndpoint = new AuthEndpoint();
-		AnalysisEndoint analysisEndpoint = new AnalysisEndoint();
+		VerificationEndpoint verEndpoint = new VerificationEndpoint();
 		String token = authEndpoint.login("user@test.com");
-		SentimentResult result = analysisEndpoint.analyze("", token);
+		VerResult result = verEndpoint.verify("", token);
 
 		Assert.assertNotNull(result);
-		Assert.assertEquals("Neutral", result.getSentiment());
-		Assert.assertEquals(50.0f, result.getConfidence(), 0);
-	}*/
+		Assert.assertEquals(false, result.getResult());
+	}
 
 	/**
-	 * Test analysis with null text
+	 * Test verification of null mail address
 	 */
-	/*@Test
-	public void testAnalyzeNullText() throws Exception {
+	@Test
+	public void testVerifyNullMailAddress() throws Exception {
 		AuthEndpoint authEndpoint = new AuthEndpoint();
-		AnalysisEndoint analysisEndpoint = new AnalysisEndoint();
+		VerificationEndpoint verEndpoint = new VerificationEndpoint();
 		String token = authEndpoint.login("user@test.com");
-		SentimentResult result = analysisEndpoint.analyze("", token);
+		VerResult result = verEndpoint.verify(null, token);
 
 		Assert.assertNotNull(result);
-		Assert.assertEquals("Neutral", result.getSentiment());
-		Assert.assertEquals(50.0f, result.getConfidence(), 0);
-	}*/
+		Assert.assertEquals(false, result.getResult());
+	}
 
 	/**
-	 * Test analysis with empty token
+	 * Test verification with empty token
 	 */
-	/*@Test(expected = Exception.class)
-	public void testAnalyzeEmptyToken() throws Exception {
-		AnalysisEndoint analysisEndpoint = new AnalysisEndoint();
-		analysisEndpoint.analyze("i hate people", "");
-	}*/
+	@Test(expected = Exception.class)
+	public void testVerifyEmptyToken() throws Exception {
+		VerificationEndpoint verEndpoint = new VerificationEndpoint();
+		verEndpoint.verify("test@asdf.at", "");
+	}
 	
 	/**
 	 * Test analysis with null token
 	 */
-	/*@Test(expected = Exception.class)
-	public void testAnalyzeNullToken() throws Exception {
-		AnalysisEndoint analysisEndpoint = new AnalysisEndoint();
-		analysisEndpoint.analyze("i hate people", null);
-	}*/
+	@Test(expected = Exception.class)
+	public void testVerifyNullToken() throws Exception {
+		VerificationEndpoint verEndpoint = new VerificationEndpoint();
+		verEndpoint.verify("test@asdf.at", null);
+	}
 }

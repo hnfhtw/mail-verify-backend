@@ -7,7 +7,7 @@ import at.fhv.mail_verify.handlers.HistoryHandler;
 
 /**
  * Unit tests for {@link HistoryHandler}
- * @author Michael Sieber
+ * @author HN
  *
  */
 public class HistoryHandlerTest {

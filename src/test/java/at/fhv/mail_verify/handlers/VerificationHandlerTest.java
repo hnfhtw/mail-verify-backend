@@ -7,7 +7,7 @@ import at.fhv.mail_verify.handlers.VerificationHandler;
 
 /**
  * Unit tests for {@link AnalysisHandler}
- * @author Michael Sieber
+ * @author HN
  *
  */
 public class VerificationHandlerTest {
