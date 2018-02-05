@@ -17,7 +17,7 @@
 	<distributionManagement>
 		<repository>
 			<id>packagecloud-hnfhtw</id>
-			<url>packagecloud+https://packagecloud.io/hnfhtw/mail_verify</url>
+			<url>packagecloud+https://packagecloud.io/hnfhtw/mail_verify</url>				<!-- https://github.com/computology/maven-packagecloud-wagon -->
 		</repository>
 		<snapshotRepository>
 			<id>packagecloud-hnfhtw</id>
@@ -27,17 +27,17 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.boot</groupId>			<!-- used to build runnable spring application -->
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>1.5.8.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>com.google.code.gson</groupId>
+			<groupId>com.google.code.gson</groupId>			<!-- used for mailboxlayer API request (REST) -> convert Java object to JSON and back -->
 			<artifactId>gson</artifactId>
 			<version>2.8.2</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
+			<groupId>org.apache.httpcomponents</groupId>	<!-- used for mailboxlayer API request (REST) -> HTTP request -->
 			<artifactId>fluent-hc</artifactId>
 			<version>4.5.3</version>
 		</dependency>
@@ -54,7 +54,7 @@
 
 		<!-- Test -->
 		<dependency>
-			<groupId>junit</groupId>
+			<groupId>junit</groupId>						<!-- used for unit and integration tests (run by surefire and failsafe plugins in maven build lifecycle) -->
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
@@ -87,14 +87,14 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.9</version>
+				<groupId>org.jacoco</groupId>						
+				<artifactId>jacoco-maven-plugin</artifactId>		<!-- JaCoCo agent creates code coverage reports from unit tests (Maven Surefire plugin) and ingetration tests (Maven Failsafe plugin) -->
+				<version>0.7.9</version>							<!-- see here: https://www.petrikainulainen.net/programming/maven/creating-code-coverage-reports-for-unit-and-integration-tests-with-the-jacoco-maven-plugin/ -->
 				<executions>
 					<!-- Prepares the property pointing to the JaCoCo runtime agent which 
 						is passed as VM argument when Maven the Surefire plugin is executed. -->
 					<execution>
-						<id>pre-unit-test</id>
+						<id>pre-unit-test</id>						<!-- execute before unit test -->
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
@@ -109,7 +109,7 @@
 					<!-- Ensures that the code coverage report for unit tests is created 
 						after unit tests have been run. -->
 					<execution>
-						<id>post-unit-test</id>
+						<id>post-unit-test</id>						<!-- execute after unit test -->
 						<phase>test</phase>
 						<goals>
 							<goal>report</goal>
@@ -125,7 +125,7 @@
 					<!-- Prepares the property pointing to the JaCoCo runtime agent which 
 						is passed as VM argument when Maven the Failsafe plugin is executed. -->
 					<execution>
-						<id>pre-integration-test</id>
+						<id>pre-integration-test</id>				<!-- execute before integration test -->
 						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>prepare-agent</goal>
@@ -141,7 +141,7 @@
 					<!-- Ensures that the code coverage report for integration tests after 
 						integration tests have been run. -->
 					<execution>
-						<id>post-integration-test</id>
+						<id>post-integration-test</id>				<!-- execute after integration test -->
 						<phase>post-integration-test</phase>
 						<goals>
 							<goal>report</goal>
@@ -156,7 +156,7 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+				<groupId>org.apache.maven.plugins</groupId>			<!-- plugin to run unit tests -->
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.20.1</version>
 				<configuration>
@@ -171,7 +171,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+				<groupId>org.apache.maven.plugins</groupId>			<!-- plugin to run integration tests -->
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.18.1</version>
 				<executions>
@@ -194,7 +194,7 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
+				<groupId>org.codehaus.mojo</groupId>						<!-- static code analysis using the FindBugs maven plugin -->
 				<artifactId>findbugs-maven-plugin</artifactId>
 				<version>3.0.5</version>
 				<executions>
@@ -224,7 +224,7 @@
 
 		<extensions>
 			<extension>
-				<groupId>io.packagecloud.maven.wagon</groupId>
+				<groupId>io.packagecloud.maven.wagon</groupId>			<!-- https://github.com/computology/maven-packagecloud-wagon -->
 				<artifactId>maven-packagecloud-wagon</artifactId>
 				<version>0.0.6</version>
 			</extension>
