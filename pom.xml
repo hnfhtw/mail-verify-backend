@@ -88,7 +88,7 @@
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>						
-				<artifactId>jacoco-maven-plugin</artifactId>		<!-- JaCoCo agent creates code coverage reports from unit tests (Maven Surefire plugin) and ingetration tests (Maven Failsafe plugin) -->
+				<artifactId>jacoco-maven-plugin</artifactId>		<!-- JaCoCo agent creates code coverage reports from unit tests (Maven Surefire plugin) and integration tests (Maven Failsafe plugin) -->
 				<version>0.7.9</version>							<!-- see here: https://www.petrikainulainen.net/programming/maven/creating-code-coverage-reports-for-unit-and-integration-tests-with-the-jacoco-maven-plugin/ -->
 				<executions>
 					<!-- Prepares the property pointing to the JaCoCo runtime agent which 
