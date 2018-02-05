@@ -18,7 +18,7 @@
 		<repository>
 			<id>packagecloud-hnfhtw</id>
 			<url>packagecloud+https://packagecloud.io/hnfhtw/mail_verify</url>				<!-- https://github.com/computology/maven-packagecloud-wagon -->
-		</repository>
+		</repository>																		<!-- maven packagecloud wagon used to upload *.jar file to packagecloud -->
 		<snapshotRepository>
 			<id>packagecloud-hnfhtw</id>
 			<url>packagecloud+https://packagecloud.io/hnfhtw/mail_verify</url>
@@ -225,7 +225,7 @@
 		<extensions>
 			<extension>
 				<groupId>io.packagecloud.maven.wagon</groupId>			<!-- https://github.com/computology/maven-packagecloud-wagon -->
-				<artifactId>maven-packagecloud-wagon</artifactId>
+				<artifactId>maven-packagecloud-wagon</artifactId>		
 				<version>0.0.6</version>
 			</extension>
 		</extensions>
