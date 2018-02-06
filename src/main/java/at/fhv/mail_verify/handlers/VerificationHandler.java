@@ -30,8 +30,8 @@ public class VerificationHandler {
 	    return INSTANCE;
 	}
 	
-	public at.fhv.mail_verify.models.VerResult verif(String mailad, String token) throws Exception {
-		// Start of user code verif
+	public at.fhv.mail_verify.models.VerResult verify(String mailad, String token) throws Exception {
+		// Start of user code verify
 		return null;
 		// End of user code
 	}
