@@ -15,11 +15,6 @@ public class User {
 	 */
 	private at.fhv.mail_verify.models.History history = null;
 	
-	/**
-	 * Description of the property dumy.
-	 */
-	public String dumy = null;
-	
 	// Start of user code (user defined attributes)
 	
 	// End of user code
@@ -38,14 +33,6 @@ public class User {
 		
 		public void setHistory(at.fhv.mail_verify.models.History history){
 		   this.history = history;
-		}
-		
-		public String getDumy(){
-		   return this.dumy;
-		}
-		
-		public void setDumy(String dumy){
-		   this.dumy = dumy;
 		}
 		
 	
