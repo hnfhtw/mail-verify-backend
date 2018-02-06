@@ -30,39 +30,9 @@ public class VerificationHandler {
 	    return INSTANCE;
 	}
 	
-	public at.fhv.mail_verify.models.VerResult verify(String mailad, String token) throws Exception {
-		// Start of user code verify
-		if(token == null || "".equals(token)) {
-			throw new Exception("Not authenticated");
-		}
-		
-		if(mailad == null || "".equals(mailad)) {
-			at.fhv.mail_verify.models.VerResult empty = new at.fhv.mail_verify.models.VerResult();
-			empty.setResult(false);
-			return empty;
-		}
-		
-		String sURL = "http://apilayer.net/api/check?access_key=" + System.getenv("MAILBOXLAYER_API_KEY") + "&email=" + mailad + "&smtp=1&format=1";
-		
-		HttpResponse response = Request.Post(sURL).execute().returnResponse();
-		String result = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
-		Gson gson = new GsonBuilder().create();
-		JsonObject jsonObject = gson.fromJson(result, JsonObject.class);
-		
-		boolean bMailValid = gson.fromJson(jsonObject.get("smtp_check"),	Boolean.class);
-				
-		at.fhv.mail_verify.models.VerResult verificationResult = new at.fhv.mail_verify.models.VerResult();
-
-    if(bMailValid == true){
-      verificationResult.setResult(true);
-    }
-    else{
-      verificationResult.setResult(false);
-    }
-		
-		HistoryHandler.getInstance().addHistory(token, mailad, verificationResult);
-		return verificationResult;
-        
+	public at.fhv.mail_verify.models.VerResult verif(String mailad, String token) throws Exception {
+		// Start of user code verif
+		return null;
 		// End of user code
 	}
 	
