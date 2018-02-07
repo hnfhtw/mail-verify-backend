@@ -15,11 +15,6 @@ public class User {
 	 */
 	private at.fhv.mail_verify.models.History history = null;
 	
-	/**
-	 * Description of the property test.
-	 */
-	public String test = null;
-	
 	// Start of user code (user defined attributes)
 	
 	// End of user code
@@ -38,14 +33,6 @@ public class User {
 		
 		public void setHistory(at.fhv.mail_verify.models.History history){
 		   this.history = history;
-		}
-		
-		public String getTest(){
-		   return this.test;
-		}
-		
-		public void setTest(String test){
-		   this.test = test;
 		}
 		
 	
